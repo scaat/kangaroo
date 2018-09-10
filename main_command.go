@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/lexkong/log"
+	log "github.com/Sirupsen/logrus"
 	"github.com/scaat/kangaroo/container"
 	"github.com/urfave/cli"
 )
