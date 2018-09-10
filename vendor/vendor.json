@@ -3,24 +3,6 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "43k7wJHq6oW+9ziVxEgxTqgCS2g=",
-			"path": "github.com/lexkong/log",
-			"revision": "972f9cd951fc7e5c8797f1fb2b57b63b09ff4de9",
-			"revisionTime": "2018-06-07T16:51:31Z"
-		},
-		{
-			"checksumSHA1": "v9VgXywtm3G+ZHkRHBdxrgpTNE4=",
-			"path": "github.com/lexkong/log/lager",
-			"revision": "972f9cd951fc7e5c8797f1fb2b57b63b09ff4de9",
-			"revisionTime": "2018-06-07T16:51:31Z"
-		},
-		{
-			"checksumSHA1": "GSL4rNuLecEdY/0v4StiSam0JR8=",
-			"path": "github.com/lexkong/log/lager/color",
-			"revision": "972f9cd951fc7e5c8797f1fb2b57b63b09ff4de9",
-			"revisionTime": "2018-06-07T16:51:31Z"
-		},
-		{
 			"checksumSHA1": "rdXBSMsIpX89xZS5rUwnBGZOe+Q=",
 			"path": "github.com/sirupsen/logrus",
 			"revision": "d329d24db4313262a3b0a24d8aeb1dc4bd294fb0",
@@ -49,12 +31,6 @@
 			"path": "golang.org/x/sys/windows",
 			"revision": "bd9dbc187b6e1dacfdd2722a87e83093c2d7bd6e",
 			"revisionTime": "2018-07-27T21:32:08Z"
-		},
-		{
-			"checksumSHA1": "ZSWoOPUNRr5+3dhkLK3C4cZAQPk=",
-			"path": "gopkg.in/yaml.v2",
-			"revision": "5420a8b6744d3b0345ab293f6fcba19c978f1183",
-			"revisionTime": "2018-03-28T19:50:20Z"
 		}
 	],
 	"rootPath": "github.com/scaat/kangaroo"
