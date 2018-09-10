@@ -3,60 +3,41 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 	"os/exec"
 	"path"
 	"strconv"
 	"syscall"
+	"github.com/urfave/cli"
+	log "github.com/sirupsen/logrus"
 )
 
-const cgroupMemoryHierarchyMount = "/sys/fs/cgroup/memory"
+const usage = `kangaroo is a simple container runtime implementation.
+			   The purpose of this project is to learn how docker works and how to
+write a docker by ourselves
+			   Enjoy it, just for fun.`
 
 func main() {
 
-	if os.Args[0] == "/proc/self/exe" {
-		fmt.Printf("current pid %d", syscall.Getppid())
-		fmt.Println()
-		cmd := exec.Command("sh", "-c", `stress --vm-bytes 200m --vm-keep -m 1`)
-		cmd.SysProcAttr = &syscall.SysProcAttr{}
+	app := cli.NewApp()
+	app.Name = "kangaroo"
+	app.Usage = usage
 
-		cmd.Stdin = os.Stdin
-		cmd.Stdout = os.Stdout
-		cmd.Stderr = os.Stderr
-		if err := cmd.Run(); err != nil {
-			log.Println(err)
-			os.Exit(1)
-		}
-
+	app.Commands = []cli.Command{
+		initCommand,
+		runCommand,
 	}
 
-	cmd := exec.Command("/proc/self/exe")
-	cmd.SysProcAttr = &syscall.SysProcAttr{Cloneflags: syscall.CLONE_NEWUTS |
-		syscall.CLONE_NEWPID |
-		syscall.CLONE_NEWNS}
-	// cmd.SysProcAttr.Credential = &syscall.Credential{Uid: uint32(1), Gid: uint32(1)}
-	// cmd.SysProcAttr.UidMappings = []syscall.SysProcIDMap{{ContainerID: 5001, HostID: syscall.Getuid(), Size: 1}}
-	// cmd.SysProcAttr.GidMappings = []syscall.SysProcIDMap{{ContainerID: 5001, HostID: syscall.Getuid(), Size: 1}}
+	app.Before = func(context *cli.Context) error {
+		// Log as JSON instead of the default ASCII formatter.
+		log.SetFormatter(&log.JSONFormatter{})
 
-	cmd.Stdin = os.Stdin
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-
-	if err := cmd.Run(); err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	} else {
-		// 得到fork出来进程映射在外部命名空间的pid
-		fmt.Printf("%v", &cmd.Process.Pid)
-
-		// 在系统默认创建挂载了memory subsystem的hierarchy上创建cgroup
-		os.Mkdir(path.Join(cgroupMemoryHierarchyMount, "testmemorylimit"), 0755)
-		// 将容器进程加入到这个cgroup中
-		ioutil.WriteFile(path.Join(cgroupMemoryHierarchyMount, "testmemorylimit", "tasks"), []byte(strconv.Itoa(cmd.Process.Pid)), 0644)
-		// 限制cgroup进程使用
-		ioutil.WriteFile(path.Join(cgroupMemoryHierarchyMount, "testmemorylimit", "memory.limit_in_bytes"), []byte("100m"), 0644)
+		log.SetOutput(os.Stdout)
+		return nil
 	}
 
-	cmd.Process.Wait()
+	if err := app.Run(os.Args); err != nil {
+		log.Fatal(err)
+	}
+
 }
