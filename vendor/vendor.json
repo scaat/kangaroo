@@ -1,0 +1,61 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "43k7wJHq6oW+9ziVxEgxTqgCS2g=",
+			"path": "github.com/lexkong/log",
+			"revision": "972f9cd951fc7e5c8797f1fb2b57b63b09ff4de9",
+			"revisionTime": "2018-06-07T16:51:31Z"
+		},
+		{
+			"checksumSHA1": "v9VgXywtm3G+ZHkRHBdxrgpTNE4=",
+			"path": "github.com/lexkong/log/lager",
+			"revision": "972f9cd951fc7e5c8797f1fb2b57b63b09ff4de9",
+			"revisionTime": "2018-06-07T16:51:31Z"
+		},
+		{
+			"checksumSHA1": "GSL4rNuLecEdY/0v4StiSam0JR8=",
+			"path": "github.com/lexkong/log/lager/color",
+			"revision": "972f9cd951fc7e5c8797f1fb2b57b63b09ff4de9",
+			"revisionTime": "2018-06-07T16:51:31Z"
+		},
+		{
+			"checksumSHA1": "rdXBSMsIpX89xZS5rUwnBGZOe+Q=",
+			"path": "github.com/sirupsen/logrus",
+			"revision": "d329d24db4313262a3b0a24d8aeb1dc4bd294fb0",
+			"revisionTime": "2018-07-31T16:13:55Z"
+		},
+		{
+			"checksumSHA1": "/IwLAWd+bVRFctg6wj1PEaONdjM=",
+			"path": "github.com/urfave/cli",
+			"revision": "934abfb2f102315b5794e15ebc7949e4ca253920",
+			"revisionTime": "2018-08-21T06:40:27Z"
+		},
+		{
+			"checksumSHA1": "BGm8lKZmvJbf/YOJLeL1rw2WVjA=",
+			"path": "golang.org/x/crypto/ssh/terminal",
+			"revision": "614d502a4dac94afa3a6ce146bd1736da82514c6",
+			"revisionTime": "2018-07-28T08:01:47Z"
+		},
+		{
+			"checksumSHA1": "dknbA7aiMYr2Ie4QE7UX84algZs=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "bd9dbc187b6e1dacfdd2722a87e83093c2d7bd6e",
+			"revisionTime": "2018-07-27T21:32:08Z"
+		},
+		{
+			"checksumSHA1": "k3aXicSfO+3+JmTNstuZrsTCRyI=",
+			"path": "golang.org/x/sys/windows",
+			"revision": "bd9dbc187b6e1dacfdd2722a87e83093c2d7bd6e",
+			"revisionTime": "2018-07-27T21:32:08Z"
+		},
+		{
+			"checksumSHA1": "ZSWoOPUNRr5+3dhkLK3C4cZAQPk=",
+			"path": "gopkg.in/yaml.v2",
+			"revision": "5420a8b6744d3b0345ab293f6fcba19c978f1183",
+			"revisionTime": "2018-03-28T19:50:20Z"
+		}
+	],
+	"rootPath": "github.com/scaat/kangaroo"
+}

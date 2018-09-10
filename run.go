@@ -14,5 +14,4 @@ func Run(tty bool, command string) {
 	}
 	parent.Wait()
 	os.Exit(-1)
-	// 	implement
 }
