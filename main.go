@@ -1,15 +1,10 @@
 package main
 
 import (
-	"fmt"
-	"io/ioutil"
 	"os"
-	"os/exec"
-	"path"
-	"strconv"
-	"syscall"
-	"github.com/urfave/cli"
+
 	log "github.com/sirupsen/logrus"
+	"github.com/urfave/cli"
 )
 
 const usage = `kangaroo is a simple container runtime implementation.

@@ -1,9 +1,9 @@
 package container
 
 import (
+	"os"
 	"os/exec"
 	"syscall"
-	"os"
 )
 
 func NewParentProcess(tty bool, command string) *exec.Cmd {
