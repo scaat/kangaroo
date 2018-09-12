@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	log "github.com/sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 	"github.com/urfave/cli"
 )
 
@@ -25,14 +25,14 @@ func main() {
 
 	app.Before = func(context *cli.Context) error {
 		// Log as JSON instead of the default ASCII formatter.
-		log.SetFormatter(&log.JSONFormatter{})
+		logrus.SetFormatter(&logrus.JSONFormatter{})
 
-		log.SetOutput(os.Stdout)
+		logrus.SetOutput(os.Stdout)
 		return nil
 	}
 
 	if err := app.Run(os.Args); err != nil {
-		log.Fatal(err)
+		logrus.Fatal(err)
 	}
 
 }
