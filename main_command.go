@@ -29,9 +29,14 @@ var runCommand = cli.Command{
 		if len(context.Args()) < 1 {
 			return fmt.Errorf("missing container command")
 		}
-		cmd := context.Args().Get(0)
+		// cmd := context.Args().Get(0)
+		var cmdArray []string
+		for _, arg := range context.Args() {
+			cmdArray = append(cmdArray, arg)
+		}
+
 		tty := context.Bool("ti")
-		Run(tty, cmd)
+		Run(tty, cmdArray)
 		return nil
 	},
 }
@@ -48,7 +53,7 @@ var initCommand = cli.Command{
 		log.Info("init come on")
 		cmd := context.Args().Get(0)
 		log.Infof("command %s", cmd)
-		err := container.RunContainerInitProcess(cmd, nil)
+		err := container.RunContainerInitProcess()
 		return err
 	},
 }
